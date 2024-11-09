@@ -1,0 +1,30 @@
+/* * { outline: .5px magenta dotted } */
+
+body {
+	padding: 10px;
+}
+
+.option {
+	display: flex;
+	height: 150px;
+	align-items: center;
+	padding: 0px 50px;
+	text-decoration: none;
+	color: white;
+}
+
+.option h1 {
+	flex: 100%;
+}
+
+.option div {
+	object-fit: contain;
+}
+
+.option div img {
+	object-fit: contain;
+	width: 100px;
+	height: 100px;
+	box-shadow: 0px 0px 10px var(--primary);
+	border-radius: 20px;
+}

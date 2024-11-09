@@ -1,0 +1,116 @@
+/* * { outline: .5px dotted magenta } */
+
+:root {
+	--notification: #393939;
+}
+
+.header {
+	padding: 10px;
+	display: flex;
+	height: 120px;
+	align-items: center;
+	gap: 20px;
+}
+
+.header .left {
+	flex: auto;
+}
+
+.header .left * {
+	margin: 0px;
+}
+
+.header .left h2 {
+	color: var(--fg2);
+}
+
+.header .right {
+	object-fit: contain;
+	height: 80px;
+	aspect-ratio: 1/1;
+}
+
+.header .right img {
+	/* width: 100%; */
+	height: 100%;
+	box-shadow: 0px 0px 10px var(--primary);
+	border-radius: 20%;
+}
+
+hr {
+	margin: 0px 10px;
+}
+
+.statistics {
+	padding: 10px;
+}
+
+.statistics .bubbles {
+	display: flex;
+	align-items: center;
+}
+
+.statistics .bubbles .bubble {
+	flex: 33.3%;
+	object-fit: contain;
+	text-align: center;
+}
+
+.statistics .bubbles .bubble img {
+	object-fit: contain;
+	width: 100%;
+	height: 100px;
+}
+
+.numbers {
+	width: 100%;
+	font-size: 24px;
+}
+
+.numbers th { 
+	text-align: left;
+}
+
+.numbers td {
+	text-align: right;
+}
+
+.notifications {
+	padding: 10px;
+}
+
+.noteWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.noteWrapper .notif {
+	display: flex;
+	background-color: var(--notification);
+	padding: 10px;
+	align-items: center;
+	font-size: 18px;
+	border-radius: 5px;
+}
+
+.noteWrapper .notif *:not(.count) {
+	text-wrap: wrap;
+	flex: 100%;
+}
+
+.noteWrapper .notif .count {
+	font-size: 28px;
+	flex: auto;
+	text-align: right;
+	padding-right: 10px;
+	font-weight: bold;
+}
+
+.noteWrapper .notif .count.good {
+	color: var(--pos);
+}
+
+.noteWrapper .notif .count.bad {
+	color: var(--neg);
+}
