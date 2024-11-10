@@ -2,6 +2,8 @@ let dataValues;
 let bubbles;
 let notifications;
 
+document.cookie = "username=YOUR MOTHER;"
+
 window.onload = function() {
 	dataValues = document.querySelectorAll("#dataValues");
 	bubbles = document.querySelectorAll("#bubbles");

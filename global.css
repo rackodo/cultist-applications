@@ -10,11 +10,58 @@
 	--neg: #E64F54;
 }
 
+/* HTML: <div class="wavy-line"></div> */
+.wavy-line {
+	--a: 135deg; /* control the angle */
+	--s: 15px; /* size of the zig-zag */
+	--b: 2px;  /* control the thickness */
+	
+	background: linear-gradient(to right, transparent, var(--neg), transparent);
+	height: calc(var(--b) + var(--s)/(2*tan(var(--a)/2)));
+	padding: 0px 10px;
+	margin: 5px 0px;
+	--_g:var(--s) repeat-x conic-gradient(from calc(var(--a)/-2) at bottom,
+	  #0000,#000 1deg calc(var(--a) - 1deg),#0000 var(--a));
+	mask: 50% calc(-1*var(--b))/var(--_g) exclude,50%/var(--_g);
+  }
+
 body {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	background-color: var(--bg);
 	color: var(--fg);
-	font-family: "Crimson Text"
+	font-family: "Crimson Text", serif;
+}
+
+.header {
+	display: flex;
+	height: 120px;
+	align-items: center;
+	gap: 20px;
+}
+
+.header .left {
+	flex: auto;
+}
+
+.header .left * {
+	margin: 0px;
+}
+
+.header .left h2 {
+	color: var(--fg2);
+}
+
+.header .right {
+	object-fit: contain;
+	height: 80px;
+	aspect-ratio: 1/1;
+}
+
+.header .right img {
+	/* width: 100%; */
+	height: 100%;
+	box-shadow: 0px 0px 10px var(--primary);
+	border-radius: 20%;
 }
