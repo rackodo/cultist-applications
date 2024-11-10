@@ -4,8 +4,31 @@
 	--notification: #393939;
 }
 
+/* HTML: <div class="wavy-line"></div> */
+.wavy-line {
+	--a: 135deg; /* control the angle */
+	--s: 15px; /* size of the zig-zag */
+	--b: 2px;  /* control the thickness */
+	
+	background: linear-gradient(to right, transparent, var(--neg), transparent);
+	height: calc(var(--b) + var(--s)/(2*tan(var(--a)/2)));
+	padding: 0px 10px;
+	margin: 5px 0px;
+	--_g:var(--s) repeat-x conic-gradient(from calc(var(--a)/-2) at bottom,
+	  #0000,#000 1deg calc(var(--a) - 1deg),#0000 var(--a));
+	mask: 50% calc(-1*var(--b))/var(--_g) exclude,50%/var(--_g);
+  }
+
+h1 {
+	margin: 0;
+	margin-bottom: 15px;
+}
+
+.section {
+	padding: 5px 10px;
+}
+
 .header {
-	padding: 10px;
 	display: flex;
 	height: 120px;
 	align-items: center;
@@ -41,25 +64,46 @@ hr {
 	margin: 0px 10px;
 }
 
-.statistics {
-	padding: 10px;
-}
-
 .statistics .bubbles {
 	display: flex;
 	align-items: center;
 }
 
 .statistics .bubbles .bubble {
-	flex: 33.3%;
+	flex: auto;
 	object-fit: contain;
 	text-align: center;
 }
 
 .statistics .bubbles .bubble img {
 	object-fit: contain;
+	width: 110px;
+	height: 110px;
+}
+
+.statistics .bubbles .bubble .container {
+	display: inline-flex;
+	align-self: center;
+	background-color: rgb(40,40,40);
+	aspect-ratio: 1/1;
+	width: 80px;
+	border-radius: 100%;
+	overflow: hidden;
+	align-items: center;
+	justify-content: center;
+	/* height: 110px; */
+}
+
+.statistics .bubbles .bubble .container img {
+	width: 40px;
+	position:absolute;
+}
+
+.statistics .bubbles .bubble .container div {
+	background-color: var(--pos);
 	width: 100%;
-	height: 100px;
+	height: 0%;
+	align-self: flex-end;
 }
 
 .numbers {
@@ -75,10 +119,6 @@ hr {
 	text-align: right;
 }
 
-.notifications {
-	padding: 10px;
-}
-
 .noteWrapper {
 	display: flex;
 	flex-direction: column;
@@ -86,12 +126,15 @@ hr {
 }
 
 .noteWrapper .notif {
+	position: relative;
 	display: flex;
 	background-color: var(--notification);
 	padding: 10px;
 	align-items: center;
 	font-size: 18px;
 	border-radius: 5px;
+	opacity: 0;
+	left: -100px;
 }
 
 .noteWrapper .notif *:not(.count) {

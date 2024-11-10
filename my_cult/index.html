@@ -4,9 +4,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="../global.css">
 		<link rel="stylesheet" href="my_cult.css">
+		<script src="/node_modules/animejs/lib/anime.min.js"></script>
 	</head>
 	<body>
-		<div class="header">
+		<div class="section header">
 			<div class="left">
 				<h1>Hello Lamb,</h1>
 				<h2>Welcome to My Cult.</h2>
@@ -15,31 +16,32 @@
 				<img src="appLogo.png">
 			</div>
 		</div>
-		<hr>
-		<div class="statistics">
+		<div class="wavy-line"></div>
+		<div class="section statistics">
 			<h1>Cult Statistics</h1>
 			<div class="bubbles">
-				<div class="bubble"><img src="bubbleSickness.png"></div>
-				<div class="bubble"><img src="bubbleFaith.png"></div>
-				<div class="bubble"><img src="bubbleHunger.png"></div>
+				<!-- <div class="bubble"><img src="bubbleSickness.png"></div> -->
+				<div class="bubble"><div class="container"><img src="../assets/sickness.png"><div id="bubbles" data-value="50"></div></div></div>
+				<div class="bubble"><div class="container" style="width: 120px"><img src="../assets/faith.png"><div id="bubbles" data-value="90"></div></div></div>
+				<div class="bubble"><div class="container"><img src="../assets/hunger.png"><div id="bubbles" data-value="40"></div></div></div>
 			</div>
 			<table class="numbers">
 				<tr>
 					<th>Followers</th>
-					<td>11</td>
+					<td id="dataValues" data-value="11"></td>
 				</tr>
 				<tr>
 					<th>Deaths</th>
-					<td>2</td>
+					<td id="dataValues" data-value="2"></td>
 				</tr>
 				<tr>
 					<th>Beds</th>
-					<td>10</td>
+					<td id="dataValues" data-value="10"></td>
 				</tr>
 			</table>
 		</div>
-		<hr>
-		<div class="notifications">
+		<div class="wavy-line"></div>
+		<div class="section notifications">
 			<h1>Notifications</h1>
 			<div class="noteWrapper">
 				<div class="notif">
@@ -68,5 +70,6 @@
 				</div>
 			</div>
 		</div>
+		<script src="my_cult.js"></script>
 	</body>
 </html>
